@@ -1,0 +1,17 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - echo "start creating an image with dockerfile"
+  - docker build -t sungil/docker-react-app -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sungil/docker-react-app npm run test -- --converage
+
+after_success:
+  - echo "Test Success"
+  
