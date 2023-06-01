@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-  - echo "start creating an image with dockerfile"
+  - echo "start creating an image with dockerfile dev"
   - docker build -t sungil/docker-react-app -f Dockerfile.dev .
 
 script:
@@ -14,4 +14,3 @@ script:
 
 after_success:
   - echo "Test Success"
-  
